@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F6DCE5">
+<meta name="description" content="Wedding day schedule — Shehani & Dinod">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="lily.css">
+<link rel="stylesheet" href="style.css">
+<title>Shehani &amp; Dinod — Schedule</title>
+</head>
+<body>
+
+
+<main class="page" id="page">
+  <nav class="nav"><a href="index.html#open" >FIND YOUR TABLE</a><a href="schedule.html" class="on">SCHEDULE</a></nav>
+  <section class="sec hero">
+    <div class="hl rv" role="img" aria-label="Pink lilies"></div>
+    <div class="names rv" style="--d:.1s">Shehani<i>with</i>Dinod</div>
+    <div class="hd rv" style="--d:.2s">TUESDAY · 01 · 12 · 2026</div>
+  </section>
+
+  <section class="sec" style="padding-top:20px">
+    <div class="lab rv">1 DECEMBER 2026</div>
+    <div class="ttl rv" style="--d:.08s">The day's schedule</div>
+    <div class="lead rv" style="--d:.14s">Here is how our day will unfold.</div>
+    <div class="tl" id="tl"></div>
+  </section>
+
+  <section class="sec foot">
+    <div class="btns rv"><a class="btn pri" href="index.html#open">Find your table</a></div>
+  </section>
+</main>
+
+<script>
+(function(){
+  /* ===== EDIT THE SCHEDULE HERE ===== */
+  var SCHEDULE = [
+      { event: "Holy Mass & Blessing", where: "Immaculate Virgin Mary's Church, Seeduwa", items: [
+        { time: "2.30 PM", title: "Holy Mass", note: "Wedding Mass & blessing of the union", key: true }
+      ]},
+      { event: "Wedding Reception", where: "Eagles' Lagoon View Banquet Hall, Katunayake", items: [
+        { time: "6.30 PM", title: "Doors open & welcome", note: "Find your table and settle in", key: true },
+        { time: "6.45 PM", title: "Couple's entrance", note: "Join us in welcoming Shehani & Dinod", key: true },
+        { time: "7.00 PM", title: "Oil lamp & cake cutting" },
+        { time: "7.15 PM", title: "Champagne fountain & toast", note: "Raise a glass with us" },
+        { time: "7.30 PM", title: "First dance", note: "Bites will be served" },
+        { time: "7.45 PM", title: "Bar opens", note: "Group photos with the couple" },
+        { time: "8.00 PM", title: "Table rounds", note: "The couple will visit each table" },
+        { time: "8.45 PM", title: "Buffet" },
+        { time: "9.15 PM", title: "Pre-shoot video & group dance", note: "The dance floor opens straight after (until 9.30 PM)", key: true },
+        { time: "9.40 PM", title: "Fireworks", key: true },
+        { time: "Later", title: "Catch-up table rounds & group photos" },
+        { time: "10.45 PM", title: "Bar closes" },
+        { time: "11.00 PM", title: "Buffet closes" },
+        { time: "11.30 PM", title: "The couple leaves", note: "Thank you for celebrating with us" }
+      ]}
+    ];
+  var s=SCHEDULE,h='';
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+  s.forEach(function(e){
+    h+='<div class="rv evc"><div class="evh"><div class="evb">'+esc(e.event.toUpperCase())+'</div>'+(e.where?'<div class="evw">'+esc(e.where)+'</div>':'')+'<div class="evo"><i></i><u></u><i></i></div></div><div class="evl">';
+    e.items.forEach(function(it){
+      h+='<div class="it'+(it.key?' key':'')+'"><div class="t">'+esc(it.time)+'</div><div class="d"><div class="h">'+esc(it.title)+'</div>'+(it.note?'<div class="n">'+esc(it.note)+'</div>':'')+'</div></div>';
+    });
+    h+='</div></div>';
+  });
+  document.getElementById('tl').innerHTML=h;
+})();
+</script>
+<script src="common.js"></script>
+</body>
+</html>

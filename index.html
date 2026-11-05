@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F6DCE5">
+<meta name="description" content="Find your table at the wedding reception of Shehani & Dinod">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="lily.css">
+<link rel="stylesheet" href="style.css">
+<title>Shehani &amp; Dinod — Find Your Table</title>
+</head>
+<body>
+
+<!-- ENVELOPE -->
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Table finder envelope">
+  <svg class="layer env-back" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,0 100,0 100,100 0,100" fill="#E4B6C7"/><polygon points="0,0 100,0 50,52" fill="#D9A3B8"/></svg>
+  <div class="letter" aria-hidden="true"><small>YOU ARE INVITED</small><b>Shehani &amp; Dinod</b></div>
+  <svg class="layer env-front" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <polygon points="0,0 52,50 0,100" fill="#F2D2DD"/>
+    <polygon points="100,0 48,50 100,100" fill="#F0CCD9"/>
+    <polygon points="0,100 50,48 100,100" fill="#F8E3EA"/>
+    <g fill="none" stroke="rgba(164,10,74,.14)" stroke-width="1" vector-effect="non-scaling-stroke"><polyline points="0,0 52,50 0,100" vector-effect="non-scaling-stroke"/><polyline points="100,0 48,50 100,100" vector-effect="non-scaling-stroke"/><polyline points="0,100 50,48 100,100" vector-effect="non-scaling-stroke"/></g>
+  </svg>
+  <div class="txt" aria-hidden="true"><small>FIND YOUR TABLE</small><b>Shehani<i>with</i>Dinod</b><span>1 · DECEMBER · 2026</span></div>
+  <div class="flapw"><div class="flap"></div></div>
+  <div class="tapl" aria-hidden="true">TAP THE SEAL TO OPEN</div>
+  <button class="seal" id="seal" type="button" aria-label="Open the invitation"><span>S&amp;D</span></button>
+</div>
+
+<div class="petals" aria-hidden="true"><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span></div>
+
+<main class="page" id="page">
+  <nav class="nav"><a href="index.html#open" class="on">FIND YOUR TABLE</a><a href="schedule.html" >SCHEDULE</a></nav>
+  <section class="sec hero">
+    <div class="hl rv" role="img" aria-label="Pink lilies"></div>
+    <div class="names rv" style="--d:.1s">Shehani<i>with</i>Dinod</div>
+    <div class="hd rv" style="--d:.2s">TUESDAY · 01 · 12 · 2026</div>
+  </section>
+
+  <section class="sec finder">
+    <div class="lab rv">WEDDING RECEPTION</div>
+    <div class="ttl rv" style="--d:.08s">Find your table</div>
+    <div class="lead rv" style="--d:.14s">Type your name and we'll show you where to sit.</div>
+    <div class="field rv" style="--d:.2s">
+      <input id="q" type="search" placeholder="Your name…" autocomplete="off" autocapitalize="words" spellcheck="false" aria-label="Search your name">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A40A4A" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+    </div>
+    <div class="res" id="res" aria-live="polite"></div>
+    <div class="hint rv" id="hint" style="--d:.3s">START TYPING YOUR FIRST OR LAST NAME</div>
+  </section>
+
+  <section class="sec mapsec" id="mapsec" hidden>
+    <div class="lab">YOUR TABLE</div>
+    <div class="big-t"><div class="tb"><small>TABLE</small><b id="mapNum">1</b></div></div>
+    <div class="dirs" id="dirs"></div>
+    <div class="mapwrap" id="mapwrap"><div class="mapin" id="mapin"></div></div>
+    <div class="mapnote">SWIPE THE MAP SIDEWAYS TO EXPLORE</div>
+    <div class="btns replay"><button class="btn sec2 sm" id="replay" type="button">&#8635; Show the way again</button></div>
+  </section>
+
+  <section class="sec foot">
+    <div class="btns rv"><a class="btn pri" href="schedule.html">View the schedule</a></div>
+    <div class="sub rv" style="margin-top:34px;font-size:16px;letter-spacing:.06em;font-family:var(--fd)">Need help? 077 805 2041 (Shehani)</div>
+  </section>
+</main>
+
+<script src="data.js"></script>
+<script src="map.js"></script>
+<script src="common.js"></script>
+<script>
+(function(){
+  var data=(window.WEDDING&&WEDDING.guests)||[],notes=(WEDDING&&WEDDING.tableNotes)||{};
+  var q=document.getElementById('q'),res=document.getElementById('res'),hint=document.getElementById('hint');
+  var mapsec=document.getElementById('mapsec'),mapin=document.getElementById('mapin'),wrap=document.getElementById('mapwrap'),dirs=document.getElementById('dirs'),num=document.getElementById('mapNum');
+  var SKIP={mr:1,mrs:1,miss:1,ms:1,dr:1,and:1,family:1,the:1};
+  function norm(s){return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim()}
+  var idx=data.map(function(g,i){return {i:i,name:g[0],table:g[1],note:g[2]||'',n:norm(g[0])}});
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+  var current=null;
+  function card(g){
+    var isNum=/^\d+$/.test(String(g.table)),n=notes[g.table]||'';
+    var sub=[g.note,n].filter(function(v,i,a){return v&&a.indexOf(v)===i}).join(' · ');
+    return '<button type="button" class="card" data-i="'+g.i+'"><div class="who"><div class="nm">'+esc(g.name)+'</div>'+(sub?'<div class="nt">'+esc(sub)+'</div>':'')+'<div class="go">SHOW ME THE WAY &rsaquo;</div></div>'+
+      '<div class="tb'+(isNum?'':' txtn')+'"><small>TABLE</small><b>'+esc(g.table)+'</b></div></button>';
+  }
+  function run(){
+    var v=norm(q.value);
+    mapsec.hidden=true;TableMap.stop();current=null;
+    var toks=v.split(' ').filter(function(t){return t&&!SKIP[t]});
+    if(v.length<2||!toks.length){res.innerHTML='';hint.style.display='';return}
+    hint.style.display='none';
+    var hits=idx.filter(function(g){return toks.every(function(t){return g.n.indexOf(t)>-1})}),close=false;
+    if(!hits.length){
+      var long=toks.filter(function(t){return t.length>=3});
+      hits=idx.filter(function(g){return long.some(function(t){return g.n.indexOf(t)>-1||(t.length>=5&&g.n.indexOf(t.slice(0,t.length-1))>-1)})});close=hits.length>0;
+    }
+    hits.sort(function(a,b){var as=a.n.indexOf(toks[0])===0?0:1,bs=b.n.indexOf(toks[0])===0?0:1;return as-bs||a.name.localeCompare(b.name)});
+    if(!hits.length){res.innerHTML='<div class="msgbox">We couldn’t find that name.<br>Try just your first or last name. If you are with a group (office, school or university friends), search for the group name, or ask any of our ushers — we’ll happily help.</div>';return}
+    var max=12;
+    res.innerHTML=(close?'<div class="msgbox">No exact match — closest names:</div>':'')+hits.slice(0,max).map(card).join('')+(hits.length>max?'<div class="msgbox">…and '+(hits.length-max)+' more. Keep typing to narrow it down.</div>':'')+(hits.length>1?'<div class="msgbox tap">Tap your name to see the way to your table.</div>':'');
+    if(hits.length===1)pick(hits[0].i);
+  }
+  function pick(i){
+    var g=idx[i];if(!g)return;current=g;
+    document.querySelectorAll('.card').forEach(function(c){c.classList.toggle('sel',c.getAttribute('data-i')==String(i))});
+    var n=parseInt(g.table,10);
+    if(!/^\d+$/.test(String(g.table))||!TableMap.tables[n]){mapsec.hidden=true;return}
+    num.textContent=n;
+    var t=TableMap.tables[n],E=WEDDING.entrance||{y:503};
+    dirs.textContent='From the entrance, walk in along the central pathway. Table '+n+' is in the '+(t[1]<E.y?'upper':'lower')+' half of the hall — just follow the glowing path.';
+    mapsec.hidden=false;
+    if(!mapin.firstChild)TableMap.build(mapin);
+    var vb=TableMap.vb;
+    function px(x){return (x-vb.x)/vb.w*mapin.offsetWidth}
+    function setScroll(x,smooth){var l=Math.max(0,Math.min(px(x)-wrap.clientWidth/2,mapin.offsetWidth-wrap.clientWidth));if(smooth&&wrap.scrollTo)wrap.scrollTo({left:l,behavior:'smooth'});else wrap.scrollLeft=l}
+    setScroll(E.x,false); // start the camera at the entrance, then follow the walker to the table
+    TableMap.show(mapin,n,setScroll);
+    setTimeout(function(){mapsec.scrollIntoView({behavior:'smooth',block:'start'})},60);
+  }
+  res.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('.card');if(c)pick(+c.getAttribute('data-i'))});
+  document.getElementById('replay').addEventListener('click',function(){if(current)pick(current.i)});
+  q.addEventListener('input',run);
+  try{var pre=new URLSearchParams(location.search).get('name');if(pre){q.value=pre.slice(0,60);run()}}catch(e){}
+})();
+</script>
+</body>
+</html>
