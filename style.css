@@ -225,4 +225,18 @@ button.card.sel{border-color:var(--ras);box-shadow:0 8px 24px rgba(164,10,74,.22
 .hero .names{margin-top:26px}
 
 /* photo blended into the envelope paper */
-.envbg{position:absolute;inset:0;z-index:4;pointer-events:none;background:url("image2.jpeg") 50% 40%/cover no-repeat;mix-blend-mode:multiply;opacity:.34;filter:grayscale(.15) contrast(1.05)}
+.envbg{position:absolute;inset:0;z-index:4;pointer-events:none;background:url("image2.jpeg?v=5") 50% 40%/cover no-repeat;mix-blend-mode:multiply;opacity:.34;filter:grayscale(.15) contrast(1.05)}
+
+/* short / landscape phones: keep the envelope tidy */
+@media (max-height:520px){
+  .seal{width:68px}
+  .tapl{display:none}
+  .txt{bottom:4%}
+  .txt small{display:none}
+  .txt b{font-size:clamp(30px,10vh,46px);margin-top:0}
+  .txt span{margin-top:0;font-size:11px}
+  .letter{padding-top:5%}
+}
+@media (max-height:520px) and (min-width:600px){
+  .sec{padding-top:44px;padding-bottom:44px}
+}
