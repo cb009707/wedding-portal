@@ -103,8 +103,7 @@
     hits.sort(function(a,b){var as=a.n.indexOf(toks[0])===0?0:1,bs=b.n.indexOf(toks[0])===0?0:1;return as-bs||a.name.localeCompare(b.name)});
     if(!hits.length){res.innerHTML='<div class="msgbox">We couldn’t find that name.<br>Try just your first or last name. If you are with a group (office, school or university friends), search for the group name, or ask any of our ushers — we’ll happily help.</div>';return}
     var max=12;
-    res.innerHTML=(close?'<div class="msgbox">No exact match — closest names:</div>':'')+hits.slice(0,max).map(card).join('')+(hits.length>max?'<div class="msgbox">…and '+(hits.length-max)+' more. Keep typing to narrow it down.</div>':'')+(hits.length>1?'<div class="msgbox tap">Tap your name to see the way to your table.</div>':'');
-    if(hits.length===1)pick(hits[0].i);
+    res.innerHTML=(close?'<div class="msgbox">No exact match — closest names:</div>':'')+hits.slice(0,max).map(card).join('')+(hits.length>max?'<div class="msgbox">…and '+(hits.length-max)+' more. Keep typing to narrow it down.</div>':'')+'<div class="msgbox tap">Tap your name to see the way to your table.</div>';
   }
   function pick(i){
     var g=idx[i];if(!g)return;current=g;
