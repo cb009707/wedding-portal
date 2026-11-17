@@ -278,14 +278,14 @@ button.card.sel{border-color:var(--ras);box-shadow:0 8px 24px rgba(164,10,74,.22
 .gpair .gimg.top img{object-position:50% 30%}
 .gcap{font-family:var(--fb);font-style:italic;font-size:18px;color:var(--ink-m);margin-top:2px}
 /* lightbox */
-.lb{position:fixed;inset:0;z-index:200;background:rgba(58,11,31,.94);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
-.lb.on{display:flex}.lb.vis{opacity:1}
-.lb img{max-width:94vw;max-height:86vh;border-radius:3px;box-shadow:0 20px 60px rgba(0,0,0,.5);touch-action:pan-y}
-.lb button{position:absolute;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center}
-.lb button:hover{background:rgba(255,255,255,.24)}
-.lb .x{top:max(14px,env(safe-area-inset-top));right:14px}
-.lb .pv{left:10px;top:50%;margin-top:-23px}.lb .nx{right:10px;top:50%;margin-top:-23px}
-.lb .ct{position:absolute;bottom:max(16px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:var(--ras-l);font-size:12px;letter-spacing:.3em}
+.lbx{position:fixed;inset:0;z-index:200;background:rgba(58,11,31,.94);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.lbx.on{display:flex}.lbx.vis{opacity:1}
+.lbx img{max-width:94vw;max-height:86vh;border-radius:3px;box-shadow:0 20px 60px rgba(0,0,0,.5);touch-action:pan-y}
+.lbx button{position:absolute;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center}
+.lbx button:hover{background:rgba(255,255,255,.24)}
+.lbx .x{top:max(14px,env(safe-area-inset-top));right:14px}
+.lbx .pv{left:10px;top:50%;margin-top:-23px}.lbx .nx{right:10px;top:50%;margin-top:-23px}
+.lbx .ct{position:absolute;bottom:max(16px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:var(--ras-l);font-size:12px;letter-spacing:.3em}
 
 /* ---- envelope polish: pearl/silver paper, sparkles, ripples, flash ---- */
 .intro::after{content:"";position:absolute;inset:0;z-index:6;pointer-events:none;background:radial-gradient(ellipse at 50% 52%,rgba(255,255,255,.55) 0,rgba(255,255,255,0) 46%),radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(58,11,31,.28) 100%)}
@@ -306,19 +306,19 @@ button.card.sel{border-color:var(--ras);box-shadow:0 8px 24px rgba(164,10,74,.22
 /* ---- ENVELOPE THEMES: change data-theme / ?theme= (pearl, champagne, rose, midnight, sage) ---- */
 :root,:root[data-theme=pearl]{--ebg:#ECE6E8;--eb1:#CFC4C8;--eb2:#BDB0B6;--ef1:#EEE7E9;--ef2:#E8DFE2;--ef3:#F7F2F4;--efl:#DDD2D7;
  --ering:conic-gradient(from 200deg,#f7f7f7,#8c8c8c,#ffffff,#555,#f7f7f7);--eglow:255,255,255;--spk:#ffffff;--pet:#ffffff,#d6d6d6,#9a9a9a,#F8E6EC,#3a0b1f;
- --etx:#A40A4A;--etx2:#222;--ebm:multiply;--eop:.42;--evig:rgba(58,11,31,.28);--elight:rgba(255,255,255,.55)}
+ --etx:#A40A4A;--etx2:#222;--ebm:multiply;--eop:.68;--evig:rgba(58,11,31,.28);--elight:rgba(255,255,255,.3)}
 :root[data-theme=champagne]{--ebg:#F4EAD3;--eb1:#E3CFA0;--eb2:#D2B878;--ef1:#F8EFD9;--ef2:#F2E5C4;--ef3:#FBF5E6;--efl:#EBD9AC;
  --ering:conic-gradient(from 200deg,#f6e3a1,#b8892e,#f8ecbd,#a47420,#f6e3a1);--eglow:255,236,170;--spk:#ffe9a8;--pet:#f6e3a1,#e8c566,#fff6d8,#F8E6EC,#A40A4A;
- --etx:#7a0839;--etx2:#3a2a14;--ebm:multiply;--eop:.34;--evig:rgba(120,80,10,.28);--elight:rgba(255,250,225,.6)}
+ --etx:#7a0839;--etx2:#3a2a14;--ebm:multiply;--eop:.6;--evig:rgba(120,80,10,.28);--elight:rgba(255,250,225,.3)}
 :root[data-theme=rose]{--ebg:#F6DCE5;--eb1:#E4B6C7;--eb2:#D9A3B8;--ef1:#F2D2DD;--ef2:#F0CCD9;--ef3:#F8E3EA;--efl:#EEC3D3;
  --ering:conic-gradient(from 200deg,#fbe3d6,#c98a7a,#fff0e8,#a8605a,#fbe3d6);--eglow:255,214,224;--spk:#fff0f4;--pet:#e29ab8,#A40A4A,#F8E6EC,#f2a9c3,#ffffff;
- --etx:#A40A4A;--etx2:#222;--ebm:multiply;--eop:.36;--evig:rgba(122,8,57,.25);--elight:rgba(255,255,255,.5)}
+ --etx:#A40A4A;--etx2:#222;--ebm:multiply;--eop:.62;--evig:rgba(122,8,57,.25);--elight:rgba(255,255,255,.28)}
 :root[data-theme=midnight]{--ebg:#2a0816;--eb1:#4a1029;--eb2:#3a0b1f;--ef1:#5b1633;--ef2:#521230;--ef3:#6a1c3b;--efl:#4d112b;
  --ering:conic-gradient(from 200deg,#f6e3a1,#b8892e,#fff2c4,#8c6420,#f6e3a1);--eglow:246,215,140;--spk:#ffe9a8;--pet:#e8c566,#ffffff,#e29ab8,#f6e3a1,#A40A4A;
- --etx:#F8E6EC;--etx2:#e9c9d6;--ebm:screen;--eop:.28;--evig:rgba(0,0,0,.5);--elight:rgba(246,215,140,.22)}
+ --etx:#F8E6EC;--etx2:#e9c9d6;--ebm:screen;--eop:.5;--evig:rgba(0,0,0,.5);--elight:rgba(246,215,140,.22)}
 :root[data-theme=sage]{--ebg:#E4ECE3;--eb1:#BCCDBE;--eb2:#A7BCAA;--ef1:#E9F0E8;--ef2:#DFE9DE;--ef3:#F3F7F2;--efl:#CBDACB;
  --ering:conic-gradient(from 200deg,#f4f8f3,#8fa690,#ffffff,#5d765f,#f4f8f3);--eglow:230,245,230;--spk:#ffffff;--pet:#ffffff,#cfe0d2,#a9c4ae,#F8E6EC,#A40A4A;
- --etx:#7a0839;--etx2:#2e3a2f;--ebm:multiply;--eop:.38;--evig:rgba(40,70,45,.25);--elight:rgba(255,255,255,.55)}
+ --etx:#7a0839;--etx2:#2e3a2f;--ebm:multiply;--eop:.64;--evig:rgba(40,70,45,.25);--elight:rgba(255,255,255,.3)}
 .intro{background:var(--tex),var(--ebg)}
 .flap{background:var(--tex),var(--efl)}
 .intro::after{background:radial-gradient(ellipse at 50% 52%,var(--elight) 0,rgba(255,255,255,0) 46%),radial-gradient(ellipse at 50% 50%,transparent 55%,var(--evig) 100%)}
@@ -332,3 +332,16 @@ button.card.sel{border-color:var(--ras);box-shadow:0 8px 24px rgba(164,10,74,.22
 .intro .txt span{color:var(--etx2)}
 .intro .hint{color:var(--etx)}
 :root[data-theme=midnight] .intro .txt b{text-shadow:0 2px 12px rgba(0,0,0,.5)}
+
+.mapsec .pn{font-family:var(--fs);font-size:clamp(34px,9.5vw,46px);line-height:1.2;color:var(--ras);padding:6px 24px 0;margin-bottom:6px;overflow-wrap:anywhere}
+.mapsec .pn:empty{display:none}
+
+/* envelope photo: sharper, and on wide screens shown as a centred portrait panel instead of a huge crop */
+.envbg{filter:contrast(1.15) brightness(1.03)}
+@media (min-aspect-ratio:1/1){
+ .envbg{left:50%;right:auto;width:min(100%,max(46vh,420px));transform:translateX(-50%);background-position:50% 50%,50% 50%;background-size:cover,cover;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 62%,transparent 88%),linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(180deg,#000 0,#000 62%,transparent 88%),linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-composite:intersect}
+}
+/* lift the photo so the couple sit above the locket */
+.envbg{top:-17%;bottom:auto;height:100%}

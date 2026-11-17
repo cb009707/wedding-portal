@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@500&family=Tinos:wght@400;700&display=swap">
 <link rel="stylesheet" href="lily.css?v=6">
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=16">
 <title>Shehani &amp; Dinod — Find Your Table</title>
 </head>
 <body>
@@ -58,6 +58,7 @@
 
   <section class="sec mapsec" id="mapsec" hidden>
     <div class="lab">YOUR TABLE</div>
+    <div class="pn" id="mapName" aria-live="polite"></div>
     <div class="big-t"><div class="tb"><small>TABLE</small><b id="mapNum">1</b></div></div>
     <div class="dirs" id="dirs"></div>
     <div class="mapwrap" id="mapwrap"><div class="mapin" id="mapin"></div></div>
@@ -76,7 +77,7 @@
 
 <script src="data.js?v=6"></script>
 <script src="map.js?v=6"></script>
-<script src="gallery.js?v=9"></script>
+<script src="gallery.js?v=11"></script>
 <script src="common.js?v=12"></script>
 <script>
 (function(){
@@ -116,6 +117,7 @@
     var n=parseInt(g.table,10);
     if(!/^\d+$/.test(String(g.table))||!TableMap.tables[n]){mapsec.hidden=true;return}
     num.textContent=n;
+    document.getElementById('mapName').textContent=g.name;
     var t=TableMap.tables[n],E=WEDDING.entrance||{y:503};
     dirs.textContent='From the entrance, walk in along the central pathway. Table '+n+' is in the '+(t[1]<E.y?'upper':'lower')+' half of the hall — just follow the glowing path.';
     mapsec.hidden=false;
