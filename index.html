@@ -5,23 +5,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#F6DCE5">
 <meta name="description" content="Find your table at the wedding reception of Shehani & Dinod">
+<script>(function(){var t="pearl";try{t=new URLSearchParams(location.search).get("theme")||t}catch(e){}document.documentElement.setAttribute("data-theme",t)})()</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@500&family=Tinos:wght@400;700&display=swap">
 <link rel="stylesheet" href="lily.css?v=6">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=12">
 <title>Shehani &amp; Dinod — Find Your Table</title>
 </head>
 <body>
 
 <!-- ENVELOPE -->
 <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Table finder envelope">
-  <svg class="layer env-back" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,0 100,0 100,100 0,100" fill="#E4B6C7"/><polygon points="0,0 100,0 50,52" fill="#D9A3B8"/></svg>
+  <svg class="layer env-back" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,0 100,0 100,100 0,100" style="fill:var(--eb1)"/><polygon points="0,0 100,0 50,52" style="fill:var(--eb2)"/></svg>
   <div class="letter" aria-hidden="true"><small>YOU ARE INVITED</small><b>Shehani &amp; Dinod</b></div>
   <svg class="layer env-front" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-    <polygon points="0,0 52,50 0,100" fill="#F2D2DD"/>
-    <polygon points="100,0 48,50 100,100" fill="#F0CCD9"/>
-    <polygon points="0,100 50,48 100,100" fill="#F8E3EA"/>
+    <polygon points="0,0 52,50 0,100" style="fill:var(--ef1)"/>
+    <polygon points="100,0 48,50 100,100" style="fill:var(--ef2)"/>
+    <polygon points="0,100 50,48 100,100" style="fill:var(--ef3)"/>
     <g fill="none" stroke="rgba(164,10,74,.14)" stroke-width="1" vector-effect="non-scaling-stroke"><polyline points="0,0 52,50 0,100" vector-effect="non-scaling-stroke"/><polyline points="100,0 48,50 100,100" vector-effect="non-scaling-stroke"/><polyline points="0,100 50,48 100,100" vector-effect="non-scaling-stroke"/></g>
   </svg>
   <div class="txt" aria-hidden="true"><small>FIND YOUR TABLE</small><b>Shehani<i>with</i>Dinod</b><span>1 · DECEMBER · 2026</span></div>
@@ -31,13 +32,14 @@
   <div class="hint" aria-hidden="true">TAP THE LOCKET TO OPEN</div>
 </div>
 
+<div class="flash" id="flash"></div>
 <div class="grow" id="grow"></div>
 <div class="petals" aria-hidden="true"><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span></div>
 
 <main class="page" id="page">
   <nav class="nav"><a href="index.html#open" class="on">FIND YOUR TABLE</a><a href="schedule.html" >SCHEDULE</a></nav>
   <section class="sec hero">
-    <div class="photo rv" style="--pos:50% 22%"><img src="image1.jpeg?v=6" alt="Shehani and Dinod walking together" decoding="async"></div>
+    <div class="photo rv" style="--pos:50% 60%"><img src="photos/moment-2.jpg?v=9" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='moment-2.jpg?v=9'}" alt="Shehani and Dinod on the balcony" decoding="async"></div>
     <div class="names rv" style="--d:.1s">Shehani<i>with</i>Dinod</div>
     <div class="hd rv" style="--d:.2s">TUESDAY · 01 · 12 · 2026</div>
   </section>
@@ -63,6 +65,8 @@
     <div class="btns replay"><button class="btn sec2 sm" id="replay" type="button">&#8635; Show the way again</button></div>
   </section>
 
+  <section class="sec gal" id="gal"></section>
+
   <section class="sec foot">
     <div class="btns rv"><a class="btn pri" href="schedule.html">View the schedule</a></div>
     <div class="sub rv" style="margin-top:34px;font-size:16px;letter-spacing:.06em;font-family:var(--fd)">Need help? 077 805 2041 (Shehani)</div>
@@ -72,7 +76,8 @@
 
 <script src="data.js?v=6"></script>
 <script src="map.js?v=6"></script>
-<script src="common.js?v=6"></script>
+<script src="gallery.js?v=9"></script>
+<script src="common.js?v=12"></script>
 <script>
 (function(){
   var data=(window.WEDDING&&WEDDING.guests)||[],notes=(WEDDING&&WEDDING.tableNotes)||{};
